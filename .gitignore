@@ -5,4 +5,5 @@
 settings_*.py
 qrs/static/metadata.xml
 /.project
-./demo/db.sqlite3
+demo/db.sqlite3
+demo/**/migrations/*
