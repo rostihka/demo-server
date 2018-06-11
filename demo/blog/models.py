@@ -3,11 +3,19 @@ from __future__ import unicode_literals
 from django.utils.six import python_2_unicode_compatible
 from django.db import models
 from django.contrib.auth.models import User
+from django.utils import timezone
 
 
 class Base(models.Model):
-    created = models.TimeField()
-    updated = models.TimeField()
+    created = models.DateTimeField(editable=False)
+    updated = models.DateTimeField()
+
+    def save(self, *args, **kwargs):
+        if not self.id:
+            self.created = timezone.now()
+
+        self.updated = timezone.now()
+        return super(Base, self).save(*args, **kwargs)
 
 
 @python_2_unicode_compatible
@@ -47,4 +55,15 @@ class Article(Base):
         self.save(update_fields=['views'])
 
 
+@python_2_unicode_compatible
+class Comment(Base):
+    name = models.CharField(max_length=100)
+    email = models.EmailField(max_length=255)
+    url = models.URLField(blank=True)
+    text = models.TextField()
+
+    article = models.ForeignKey(Article)
+    
+    def __str__(self):
+        return self.text[:20]
 
