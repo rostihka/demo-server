@@ -4,7 +4,6 @@ from django.utils.six import python_2_unicode_compatible
 from django.contrib.auth.models import AbstractBaseUser
 from django.db import models
 from django.utils.timezone import now
-from django.contrib.sites.models import Site
 from django.urls import reverse
 
 
@@ -20,7 +19,3 @@ class BlogUser(AbstractBaseUser):
 
     def __str__(self):
         return self.email
-
-    def get_full_url(self):
-        site = Site.objects.get_current().domain
-        url = "http://{0}{1}".format(site, self.get_absolute_url())

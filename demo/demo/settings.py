@@ -25,7 +25,7 @@ SECRET_KEY = '&q_%5ip7mk23lgpbx#x0p9ca2409(@fcv^!xje79ytri11hel4'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['n.qrs.local']
+ALLOWED_HOSTS = ['n.qrs.local', 'localhost', '127.0.0.1']
 
 
 # Application definition
@@ -40,6 +40,7 @@ INSTALLED_APPS = [
 
     # apps
     'blog.apps.BlogConfig',
+    'accounts.apps.AccountsConfig',
 
     # rest
     'rest_framework'
