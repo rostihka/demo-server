@@ -1,0 +1,9 @@
+.idea
+.vscode
+.DS_Store
+*.pyc
+settings_*.py
+qrs/static/metadata.xml
+/.project
+demo/db.sqlite3
+demo/**/migrations/*
