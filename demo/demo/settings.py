@@ -25,7 +25,7 @@ SECRET_KEY = '&q_%5ip7mk23lgpbx#x0p9ca2409(@fcv^!xje79ytri11hel4'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['n.qrs.local']
 
 
 # Application definition
